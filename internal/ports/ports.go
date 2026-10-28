@@ -20,3 +20,13 @@ func CheckFreePorts(port int) bool {
 
 	return true
 }
+
+func FirstFree(start,end int) {
+	for port := start; port < end; port++ {
+		if CheckFreePorts(port) {
+			return port, nil
+		}
+	}
+
+	return 0,ErrNoFreePort
+}
